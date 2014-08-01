@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nqmobile.diagnosis"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.bluetooth" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:largestWidthLimitDp="640"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name=".activity.NQDiagnostics"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/appName"
+        android:largeHeap="true"
+        android:logo="@drawable/ic_logo"
+        android:theme="@style/MyCustomTheme" >
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".activity.StaticTestActivity"
+            android:label="@string/appName"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.test" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DashBoardActivity"
+            android:label="@string/appName"
+            android:logo="@drawable/ic_logo"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:logo="@drawable/ic_logo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.testunit.VibratorActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.vibration" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.KeysActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.keys" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.ButtonActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.buttons" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.FlashlightActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.flash" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.SpeakerActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.earspeaker" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.LoudSpeakerActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.loudspeaker" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.SoundActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.microphone" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.HeadsetActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.headset" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.CameraActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.camera" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.FrontCameraActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.frontcamera" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.BatteryActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.batteryremaining" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.MemoryActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.memoryusedvstotalavailable" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.MemoryConsumptionActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.memoryconsumebyapps" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.ScreenBrightnessActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.screenbrightness" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.SingleTouchActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.singletouch" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.MultiTouchActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.multitouch" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.AccelerometerActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.accelerometer" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.GpsActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.gps" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.CellularDataActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.celldata" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.ChangeColourActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.testunit.DeadPixelActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomThemeNoTitleBar" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.color" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.PixelActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.pixel" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.BluetoothActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.bluetooth" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.WifiActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.wifi" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.CompassActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.compass" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.testunit.GyroscopeActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+            <intent-filter>
+                <action android:name="com.nqmobile.intent.gyroscope" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TestSuiteActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.LogsAndReportActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.HelpOptionActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.HelpList"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.HelpPagerActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.DeviceInformationActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.AboutMenuActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.WebActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.ViewResultActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.ShowTestSuiteResultActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.testunit.SensorSuiteActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.WebviewActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.ReportDetailActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+        </activity>
+        <activity
+            android:name=".activity.RadioTestSuiteActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+             <intent-filter>
+                <action android:name="com.nqmobile.intent.Radio" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SensorsTestSuiteActivity"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/appName"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme" >
+              <intent-filter>
+                <action android:name="com.nqmobile.intent.Sensors" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
